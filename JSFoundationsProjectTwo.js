@@ -15,6 +15,13 @@
  */
 function filterEvens(numbers) {
 	// your code goes here!
+	var i;
+	let even = [];
+    for (i = 0; i < numbers.length; i++) {
+	   if (numbers[i] % 2 == 0 )
+	       even.push(numbers[i]);
+	} 
+	return even;
 }
 
 /**
@@ -30,6 +37,13 @@ function filterEvens(numbers) {
  */
 function filterOdds(numbers) {
 	// your code goes here!
+	var i;
+	let odd = [];
+    for (i = 0; i < numbers.length; i++) {
+	   if (numbers[i] % 2 == 1 )
+	       odd.push(numbers[i]);
+	} 
+	return odd;
 }
 
 /**
@@ -44,6 +58,13 @@ function filterOdds(numbers) {
  */
 function sumOdds(numbers) {
 	// your code goes here!
+	var i;
+	let odd = 0;
+    for (i = 0; i < numbers.length; i++) {
+	   if (numbers[i] % 2 == 1 )
+	       odd = numbers[i] + odd;
+	} 
+	return odd;
 }
 
 
@@ -66,6 +87,13 @@ let states = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','Californ
  */
 function stateNamesLongerThan(minLength) {
 	// your code goes here!
+	var i;
+	let tmp = [];
+    for (i = 0; i < states.length; i++) {
+	   if (states[i].length > minLength )
+	       tmp.push(states[i]);
+	} 
+	return tmp;
 }
 
 /**
@@ -80,6 +108,13 @@ function stateNamesLongerThan(minLength) {
  */
 function numberOfStateNamesLongerThan(minLength) {
 	// your code goes here!
+	var i;
+	let tmp = 0;
+    for (i = 0; i < states.length; i++) {
+	   if (states[i].length > minLength )
+	       tmp++;
+	} 
+	return tmp;
 }
 
 /**
@@ -109,6 +144,15 @@ function numberOfStateNamesLongerThan(minLength) {
  */
 function replaceStateNames(newName, len) {
 	// your code goes here!
+	var i;
+	let tmp = [];
+    for (i = 0; i < states.length; i++) {
+	   if (states[i].length == len )
+		   tmp.push(newName);
+		else
+	       tmp.push(states[i]);
+	} 
+	return tmp;
 }
 
 /**
@@ -123,6 +167,13 @@ function replaceStateNames(newName, len) {
  */
 function numberOfStateNamesContaining(subString) {
 	// your code goes here!
+	var i;
+	let tmp = 0;
+    for (i = 0; i < states.length; i++) {
+	   if (states[i].includes(subString) )
+	       tmp++;
+	} 
+	return tmp;
 }
 
 
@@ -132,38 +183,53 @@ The following code runs the functions defined above
 let numbers = [153,67,9,34,7,67,342,7,34,8656,2,124,5,43];
 
 // // filterEvens
-// let evens = filterEvens(numbers);
-// console.log("EVENS:");
-// console.log(evens);
+ let evens = filterEvens(numbers);
+ console.log("EVENS:");
+ console.log(evens);
 
 // // sumOdds
-// let sum = sumOdds(numbers);
-// console.log("\n--------------------------")
-// console.log("SUM ODDS:");
-// console.log(sum);
+ let sum = sumOdds(numbers);
+ console.log("\n--------------------------")
+ console.log("SUM ODDS:");
+ console.log(sum);
 
 // // stateNamesLongerThan
-// let largeNames = stateNamesLongerThan(15);
-// console.log("\n--------------------------")
-// console.log("STATE NAMES LONGER THAN:");
-// console.log(largeNames);
+ let largeNames = stateNamesLongerThan(11);
+ console.log("\n--------------------------")
+ console.log("STATE NAMES LONGER THAN:");
+ console.log(largeNames);
 
 // // numberOfStateNamesLongerThan
-// let numOfLargeStateNames = numberOfStateNamesLongerThan(10);
-// console.log("\n--------------------------")
-// console.log("NUMBER OF STATE NAMES LONGER THAN:");
-// console.log(numOfLargeStateNames);
+ let numOfLargeStateNames = numberOfStateNamesLongerThan(10);
+ console.log("\n--------------------------")
+ console.log("NUMBER OF STATE NAMES LONGER THAN:");
+ console.log(numOfLargeStateNames);
 
 // // replaceStateNames
-// let newNames = replaceStateNames("REBOUND", 12);
-// console.log("\n--------------------------")
-// console.log("REPLACE STATE NAMES:");
-// console.log(newNames);
+ let newNames = replaceStateNames("REBOUND", 12);
+ console.log("\n--------------------------")
+ console.log("REPLACE STATE NAMES:");
+ console.log(newNames);
 
 // // numberOfStateNamesContaining
-// let occurances = numberOfStateNamesContaining("New");
-// console.log("\n--------------------------")
-// console.log("NUMBER OF STATE NAMES CONTAININGa:");
-// console.log(occurances);
+ let occurances = numberOfStateNamesContaining("New");
+ console.log("\n--------------------------")
+ console.log("NUMBER OF STATE NAMES CONTAININGa:");
+ console.log(occurances);
 
 // How can you know the number of states with names that contain multiple words?
+
+function numberOfStateNamesHasTwoNames() {
+	// your code goes here!
+	var i;
+	let tmp = 0;
+    for (i = 0; i < states.length; i++) {
+	   if (states[i].includes(" ") )
+	       tmp++;
+	} 
+	return tmp;
+}
+
+console.log("\n--------------------------")
+ console.log("NUMBER OF STATE NAMES CONTAINING TWO WORDS");
+ console.log( numberOfStateNamesHasTwoNames());
